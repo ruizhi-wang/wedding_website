@@ -52,13 +52,13 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "bigday.urls"
+ROOT_URLCONF = "gettingstarted.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         'DIRS': [
-            os.path.join('bigday', 'templates'),
+            os.path.join('gettingstarted', 'templates'),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -72,7 +72,7 @@ TEMPLATES = [
     }
 ]
 
-WSGI_APPLICATION = "bigday.wsgi.application"
+WSGI_APPLICATION = "gettingstarted.wsgi.application"
 
 
 # Database
