@@ -1,21 +1,16 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-
-{% block content %}
-  <div class="container">
-
-
-<h2>Page View Report</h2>
-
-
-<ul>
-
-{% for greeting in greetings %}
-    <li>{{ greeting.when }}</li>
-{% endfor %}
-
-</ul>
-
-</div>
-
-{% endblock %}
+<html>
+  <head>
+    <title>Band Listing</title>
+  </head>
+  <body>
+    <h1>All Bands</h1>
+    <ul>
+    {% for band in bands %}
+      <li>
+        <h2><a href="{{ band.get_absolute_url }}">{{ band.name }}</a></h2>
+        {% if band.can_rock %}<p>This band can rock!</p>{% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>
