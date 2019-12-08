@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_head %}
+    <!-- Custom CSS -->
+    <link href="{% static 'hello/css/creative.css' %}" rel="stylesheet">
+{% endblock %}
+{% block page_content %}
+    {% block main %}
+    <header id="main-header">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Coming soon!</h1>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
+{% endblock %}
+{% block page_js %}
+    <!-- Plugin JavaScript -->
+    <!-- Easing is for the vertical scroll animations -->
+    <script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
+    <!-- Automatically fit text based on screen size.-->
+    <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'creative/js/creative.js' %}"></script>
+{% endblock %}
