@@ -21,24 +21,47 @@ body {
   .person:hover {
     border-color: #f1f1f1;
   }
-  .carousel-inner img {
-    width:100%;
-    margin: auto;
-  }
-  .carousel-caption h3 {
+
+
+html,body{
+    height:100%;
+    }
+
+.carousel,.item,.active{
+    height:100%;
+    }
+
+.carousel-inner{
+    height:100%;
+    }
+
+.fill{
+    width:100%;height:100%;background-position:center;background-size:cover;
+    }
+
+ .carousel-caption h3 {
     color: #fff !important;
+    font-size: 20px;
+  }
+  .carousel-caption p {
+    color: #fff !important;
+    font-size: 40px;
   }
   @media (max-width: 600px) {
     .carousel-caption {
       display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
     }
   }
+
+
+
+/* Definition of the Travel section */
   .bg-1 {
     background: #2d2d30;
     color: #bdbdbd;
   }
   .bg-1 h3 {color: #fff;}
-  .bg-1 p {font-style: italic;}
+  .bg-1 p {font-style: normal;}
   .list-group-item:first-child {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
