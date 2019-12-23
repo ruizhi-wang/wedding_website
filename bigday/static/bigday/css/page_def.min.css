@@ -9,7 +9,7 @@ body {
     color: #111;
   }
   .container {
-    padding: 80px 120px;
+    padding: 80px 60px;
   }
   .person {
     border: 10px solid transparent;
@@ -45,11 +45,12 @@ html,body{
   }
   .carousel-caption p {
     color: #fff !important;
-    font-size: 40px;
+    font-size: 20px;
   }
+
   @media (max-width: 600px) {
     .carousel-caption {
-      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+      /*display: none;*/  /* Hide the carousel text when the screen is less than 600 pixels wide */
     }
   }
 
