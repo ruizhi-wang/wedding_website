@@ -126,5 +126,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER =  config('EMAIL_ADRESS')
+EMAIL_HOST_USER = config('EMAIL_ADRESS')
 EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')
