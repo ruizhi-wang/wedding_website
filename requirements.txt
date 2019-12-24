@@ -1,4 +1,5 @@
 python-decouple
+django-widget-tweaks
 django
 gunicorn
 django-heroku
