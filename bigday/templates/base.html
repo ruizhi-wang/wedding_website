@@ -15,6 +15,8 @@
 <!--  <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css">-->
 
 
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +71,7 @@
 <!--Navigation Bar - End-->
 
 <!--Landing Page - Start-->
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -221,70 +223,107 @@
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+<!--  &lt;!&ndash; Modal &ndash;&gt;-->
+<!--  <div class="modal fade" id="myModal" role="dialog">-->
+<!--    <div class="modal-dialog">-->
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
-        </div>
-        <div class="modal-body">
-          <form role="form">
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
-              <input type="number" class="form-control" id="psw" placeholder="How many?">
-            </div>
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-            </div>
-              <button type="submit" class="btn btn-block">Pay
-                <span class="glyphicon glyphicon-ok"></span>
-              </button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-            <span class="glyphicon glyphicon-remove"></span> Cancel
-          </button>
-          <p>Need <a href="#">help?</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!--      &lt;!&ndash; Modal content&ndash;&gt;-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header">-->
+<!--          <button type="button" class="close" data-dismiss="modal">×</button>-->
+<!--          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <form role="form">-->
+<!--            <div class="form-group">-->
+<!--              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>-->
+<!--              <input type="number" class="form-control" id="psw" placeholder="How many?">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>-->
+<!--              <input type="text" class="form-control" id="usrname" placeholder="Enter email">-->
+<!--            </div>-->
+<!--              <button type="submit" class="btn btn-block">Pay-->
+<!--                <span class="glyphicon glyphicon-ok"></span>-->
+<!--              </button>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">-->
+<!--            <span class="glyphicon glyphicon-remove"></span> Cancel-->
+<!--          </button>-->
+<!--          <p>Need <a href="#">help?</a></p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 <!-- Container (Contact Section) -->
-<div id="contact" class="container">
+<div id="contact" class="container" >
+
   <h3 class="text-center">Contact</h3>
   <p class="text-center"><em>Please send us an Email!</em></p>
   <div class="row">
     <div class="col-md-4">
-      <p>Any comments? Please drop a note</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span>Epping, UK</p>
-      <p><span class="glyphicon glyphicon-phone"></span>Phone: +44 7517608059</p>
-      <p><span class="glyphicon glyphicon-envelope"></span>Email: noemieruizhi@gmail.com</p>
+      <br>
+      <p> 49 Woodland Grove <br> Epping Cm16 4NE <br>United Kingdom <br></p>
+      <p><span class="glyphicon glyphicon-phone"></span> Phone: +44 7517608059</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> Email: noemieruizhi@gmail.com</p>
     </div>
 
     <div class="col-md-8">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-      <br>
-      <div class="row">
-        <div class="col-md-12 form-group">
-          <button class="btn pull-right" type="submit">Send</button>
-        </div>
-      </div>
+
+      <form role="form" action="" method="post">
+        {% csrf_token %}
+
+          {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field }}
+          {% endfor %}
+
+          {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.non_field_errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% for field in form.visible_fields %}
+            <div class="form-group">
+              {{ field.label_tag }}
+
+              {% if form.is_bound %}
+                {% if field.errors %}
+                  {% render_field field class="form-control is-invalid" %}
+                  {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                      {{ error }}
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  {% render_field field class="form-control is-valid" %}
+                {% endif %}
+              {% else %}
+                {% render_field field class="form-control" %}
+              {% endif %}
+
+              {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+       </form>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+    {% endfor %}
+
+    {% endif %}
     </div>
   </div>
   <br>

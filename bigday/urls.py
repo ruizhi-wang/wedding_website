@@ -17,6 +17,4 @@ import bigday.views
 urlpatterns = [
     path("", bigday.views.index, name="index"),
     path("admin/", admin.site.urls),
-    path("contact/", bigday.views.contact, name='contact'),
-    path("success/", bigday.views.success, name='success')
 ]
