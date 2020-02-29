@@ -18,7 +18,7 @@ def index(request):
             contact_email = form.cleaned_data['contact_email']
             contact_message = form.cleaned_data['contact_message']
             try:
-                send_mail(contact_name, contact_message, contact_email, ['noemieruizhi@gmail.com'])
+                send_mail(contact_name, contact_message, contact_email, ['noemie.ruizhi@gmail.com'])
                 messages.success(request, 'Successfully Sent The Message!')
                 form = contact_form()
             except BadHeaderError:
