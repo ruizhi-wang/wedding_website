@@ -303,66 +303,66 @@
     <h3 class="text-center">Contact</h3>
     <p class="text-center"><em>Please send us an Email!</em></p>
     <div class="row">
-      <div class="col-md-4">
+      <div class="text-center"">
         <br>
         <p> 49 Woodland Grove <br> Epping Cm16 4NE <br>United Kingdom <br></p>
         <p><span class="glyphicon glyphicon-phone"></span> Phone: +44 7517608059</p>
         <p><span class="glyphicon glyphicon-envelope"></span> Email: noemie.ruizhi@gmail.com</p>
       </div>
 
-      <div class="col-md-8">
+<!--      <div class="col-md-8">-->
 
-        <form role="form" action="" method="post">
-          {% csrf_token %}
+<!--        <form role="form" action="" method="post">-->
+<!--          {% csrf_token %}-->
 
-            {% for hidden_field in form.hidden_fields %}
-              {{ hidden_field }}
-            {% endfor %}
+<!--            {% for hidden_field in form.hidden_fields %}-->
+<!--              {{ hidden_field }}-->
+<!--            {% endfor %}-->
 
-            {% if form.non_field_errors %}
-              <div class="alert alert-danger" role="alert">
-                {% for error in form.non_field_errors %}
-                  {{ error }}
-                {% endfor %}
-              </div>
-            {% endif %}
+<!--            {% if form.non_field_errors %}-->
+<!--              <div class="alert alert-danger" role="alert">-->
+<!--                {% for error in form.non_field_errors %}-->
+<!--                  {{ error }}-->
+<!--                {% endfor %}-->
+<!--              </div>-->
+<!--            {% endif %}-->
 
-            {% for field in form.visible_fields %}
-              <div class="form-group">
-                {{ field.label_tag }}
+<!--            {% for field in form.visible_fields %}-->
+<!--              <div class="form-group">-->
+<!--                {{ field.label_tag }}-->
 
-                {% if form.is_bound %}
-                  {% if field.errors %}
-                    {% render_field field class="form-control is-invalid" %}
-                    {% for error in field.errors %}
-                      <div class="invalid-feedback">
-                        {{ error }}
-                      </div>
-                    {% endfor %}
-                  {% else %}
-                    {% render_field field class="form-control is-valid" %}
-                  {% endif %}
-                {% else %}
-                  {% render_field field class="form-control" %}
-                {% endif %}
+<!--                {% if form.is_bound %}-->
+<!--                  {% if field.errors %}-->
+<!--                    {% render_field field class="form-control is-invalid" %}-->
+<!--                    {% for error in field.errors %}-->
+<!--                      <div class="invalid-feedback">-->
+<!--                        {{ error }}-->
+<!--                      </div>-->
+<!--                    {% endfor %}-->
+<!--                  {% else %}-->
+<!--                    {% render_field field class="form-control is-valid" %}-->
+<!--                  {% endif %}-->
+<!--                {% else %}-->
+<!--                  {% render_field field class="form-control" %}-->
+<!--                {% endif %}-->
 
-                {% if field.help_text %}
-                  <small class="form-text text-muted">{{ field.help_text }}</small>
-                {% endif %}
-              </div>
-            {% endfor %}
+<!--                {% if field.help_text %}-->
+<!--                  <small class="form-text text-muted">{{ field.help_text }}</small>-->
+<!--                {% endif %}-->
+<!--              </div>-->
+<!--            {% endfor %}-->
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+<!--          <button type="submit" class="btn btn-primary">Submit</button>-->
 
-         </form>
-      {% if messages %}
-      {% for message in messages %}
-      {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+<!--         </form>-->
+<!--      {% if messages %}-->
+<!--      {% for message in messages %}-->
+<!--      {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}-->
 
-      {% endfor %}
+<!--      {% endfor %}-->
 
-      {% endif %}
-      </div>
+<!--      {% endif %}-->
+<!--      </div>-->
     </div>
     <br>
   </div>
