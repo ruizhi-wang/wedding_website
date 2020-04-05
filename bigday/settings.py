@@ -29,6 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # DEBUG = config('DEBUG', cast=bool)
 DEBUG = False
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ADMINS =  [('Ruizhi', 'ruizhiwang90@gmail.com')]
 
 
 # Application definition
